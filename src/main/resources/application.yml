@@ -1,0 +1,64 @@
+###############################################################
+#####                 Commons configurations             ######
+###############################################################
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    generate-ddl: false
+    database: postgresql
+    hibernate:
+      ddl-auto: create-drop
+server:
+  servlet:
+    context-path: /geofences
+springdoc:
+  show-actuator: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+---
+###############################################################
+#####                 Local configurations               ######
+###############################################################
+spring:
+  config:
+    activate:
+      on-profile: develop
+  datasource:
+      url: jdbc:postgresql://localhost:5435/postgres
+      username: postgres
+      password: postgres
+      hikari:
+        connectionTimeout: 20000
+        maximumPoolSize: 5  
+logging:
+  level:
+    root: info
+server:
+  port: 8081
+---
+###############################################################
+#####                Cloud configurations                ######
+###############################################################
+spring:
+  config:
+    activate:
+      on-profile: cloud
+  datasource:
+      url: ${DATABASE_URL}
+      username: ${DATABASE_USERNAME}
+      password: ${DATABASE_PASSWORD}
+      hikari:
+        connectionTimeout: ${DATABASE_CONNECTION_TIMEOUT}
+        maximumPoolSize: ${DATABASE_MAXIMUM_POOL_SIZE}
+  jpa:
+    hibernate:
+      ddl-auto: ${DATABASE_DDL_AUTO}
+logging:
+  level:
+    root: ${LOG_LEVEL}
+server:
+  port: ${PORT}
