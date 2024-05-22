@@ -1,10 +1,16 @@
 package br.com.viniciusfinger.geofences.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FenceFeatureInterest {
 
     @Id
@@ -17,6 +23,8 @@ public class FenceFeatureInterest {
 
     @Enumerated(EnumType.STRING)
     private FenceFeature functionality;
+
+    private Boolean active;
 
     @ManyToMany
     @JoinTable(
