@@ -1,6 +1,7 @@
 package br.com.viniciusfinger.geofences.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
@@ -28,11 +29,9 @@ public class FenceController implements IFenceController {
     public Fence saveFence() {
         //to-do: receive fence as object
         Fence fence = new Fence();
-        fence.setColor("blue");
+        fence.setColorHex("blue");
         fence.setDescription("teste");
         fence.setName("teste");
-
-        fence.setCustomerId(1L);
 
         GeometryFactory geometryFactory = new GeometryFactory();
         Coordinate[] coordinates = new Coordinate[] {
@@ -51,7 +50,7 @@ public class FenceController implements IFenceController {
     }
 
     @GetMapping("/customers/{customerId}")
-    public List<Fence> getFencesByCustomerId(@PathVariable Long customerId) {
+    public List<Fence> getFencesByCustomerId(@PathVariable UUID customerId) {
         return fenceService.findByCustomerId(customerId);
     }
 }

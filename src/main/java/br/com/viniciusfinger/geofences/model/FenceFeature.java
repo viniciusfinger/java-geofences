@@ -1,6 +1,9 @@
 package br.com.viniciusfinger.geofences.model;
 
-public enum FenceFunctionality {
+public enum FenceFeature {
+    SPEED_LIMIT,
+    ENTRANCE_CONTROL,
+    EXIT_CONTROL
     //to-do: vai ser um enum mesmo?
     //estruturar bem como vai ser
     //me inspirar no design pattern que fiz para o itau

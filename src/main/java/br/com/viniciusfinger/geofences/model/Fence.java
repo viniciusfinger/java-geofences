@@ -2,6 +2,7 @@ package br.com.viniciusfinger.geofences.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import org.locationtech.jts.geom.Polygon;
 
 import lombok.AllArgsConstructor;
@@ -27,17 +28,18 @@ public class Fence {
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    private List<FenceFunctionality> fenceFunctionalities;
+    @OneToMany
+    @JoinColumn(name = "fence_id")
+    private List<FenceFeatureInterest> functionalities;
 
-    //to-do: vai ser setado por quem criar a cerca? 
-    private String color;
+    @Pattern(regexp = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", message = "Invalid color hex code")
+    private String colorHex;
 
     @Column(name = "polygon", columnDefinition = "Geometry(Polygon)")
     private Polygon polygon;
 
-    // to-do: criar uma entidade customer e associar
-    private Long customerId;
+    @ManyToOne
+    private Customer customer;
 
 }
 

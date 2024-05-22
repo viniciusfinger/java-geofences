@@ -12,3 +12,6 @@ API
 ## Running ▶️
 1. Run `docker-compose up` to start PostgisSQL (an spatial version of postgreSQL)
 2. Run `AssetsApplication.java` file with the `develop` profile passed as a parameter (`--spring.profiles.active=develop`)
+
+
+#to-do: implement openAPI documentation and swagger

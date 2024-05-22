@@ -5,11 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import br.com.viniciusfinger.geofences.model.Fence;
 import java.util.List;
+import java.util.UUID;
 
 
 @Repository
-public interface FenceRepository extends JpaRepository<Fence, Long> {
+public interface FenceRepository extends JpaRepository<Fence, UUID> {
     
-    List<Fence> findByCustomerId(Long customerId);
+    List<Fence> findByCustomerId(UUID customerId);
 
 }

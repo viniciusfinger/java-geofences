@@ -1,6 +1,7 @@
 package br.com.viniciusfinger.geofences.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import br.com.viniciusfinger.geofences.model.Fence;
 import br.com.viniciusfinger.geofences.repository.FenceRepository;
@@ -21,15 +22,15 @@ public class FenceService {
         return fenceRepository.save(fence);
     }
 
-    public Fence findById(Long id) {
+    public Fence findById(UUID id) {
         return fenceRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Fence not found"));
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(UUID id) {
         fenceRepository.deleteById(id);
     }
 
-    public List<Fence> findByCustomerId(Long customerId) {
+    public List<Fence> findByCustomerId(UUID customerId) {
         return fenceRepository.findByCustomerId(customerId);
     }
 }
