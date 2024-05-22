@@ -30,12 +30,12 @@ public class Fence {
 
     @OneToMany
     @JoinColumn(name = "fence_id")
-    private List<FenceFeatureInterest> functionalities;
+    private List<FenceFeatureInterest> features;
 
     @Pattern(regexp = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", message = "Invalid color hex code")
     private String colorHex;
 
-    @Column(name = "polygon", columnDefinition = "Geometry(Polygon)")
+    @Column(name = "polygon", columnDefinition = "Geometry(Polygon)", nullable = false)
     private Polygon polygon;
 
     @ManyToOne

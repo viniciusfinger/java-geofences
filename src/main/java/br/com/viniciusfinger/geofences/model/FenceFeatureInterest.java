@@ -1,5 +1,6 @@
 package br.com.viniciusfinger.geofences.model;
 
+import br.com.viniciusfinger.geofences.enums.FenceFeature;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +23,7 @@ public class FenceFeatureInterest {
     private Fence fence;
 
     @Enumerated(EnumType.STRING)
-    private FenceFeature functionality;
+    private FenceFeature feature;
 
     private Boolean active;
 

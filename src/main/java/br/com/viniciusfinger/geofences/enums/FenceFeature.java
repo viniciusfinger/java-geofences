@@ -1,4 +1,4 @@
-package br.com.viniciusfinger.geofences.model;
+package br.com.viniciusfinger.geofences.enums;
 
 public enum FenceFeature {
     SPEED_LIMIT,
