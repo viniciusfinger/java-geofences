@@ -7,5 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fences")
 public class FenceController implements IFenceController {
 
+    //todo: implementar
 
 }

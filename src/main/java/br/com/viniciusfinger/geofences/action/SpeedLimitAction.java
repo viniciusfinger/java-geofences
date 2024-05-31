@@ -4,7 +4,7 @@ import br.com.viniciusfinger.geofences.dto.TelemetryDTO;
 import br.com.viniciusfinger.geofences.enums.InfractionType;
 import br.com.viniciusfinger.geofences.model.FenceFeatureInterest;
 import br.com.viniciusfinger.geofences.model.Infraction;
-import br.com.viniciusfinger.geofences.repository.InfractionRepository;
+import br.com.viniciusfinger.geofences.service.InfractionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class SpeedLimitAction implements Action {
 
     @Autowired
-    private InfractionRepository infractionRepository;
+    private InfractionService infractionService;
 
     public void execute(FenceFeatureInterest fenceFeatureInterest, TelemetryDTO telemetry) {
         var fence = fenceFeatureInterest.getFence();
@@ -23,7 +23,7 @@ public class SpeedLimitAction implements Action {
                     .fenceFeatureInterest(fenceFeatureInterest)
                     .build();
 
-            infractionRepository.save(infraction);
+            infractionService.save(infraction);
         }
     }
 }

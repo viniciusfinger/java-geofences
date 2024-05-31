@@ -12,7 +12,7 @@ public class Event {
     Fence entrance and exit events (and another events)
      */
 
-    //to-do: terminar de implementar. Associar a funcionalidade que gerou o evento.
+    //todo: terminar de implementar. Associar a funcionalidade que gerou o evento.
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

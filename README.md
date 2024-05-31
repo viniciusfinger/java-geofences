@@ -1,5 +1,5 @@
 # Geofences API 📈
-to-do: improve readme
+todo: improve readme
 API
 
 ## Dependencies 📦
@@ -14,4 +14,4 @@ API
 2. Run `AssetsApplication.java` file with the `develop` profile passed as a parameter (`--spring.profiles.active=develop`)
 
 
-#to-do: implement openAPI documentation and swagger
+#todo: implement openAPI documentation and swagger

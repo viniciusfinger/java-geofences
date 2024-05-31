@@ -7,8 +7,8 @@ import lombok.Getter;
 @Getter
 public enum FenceFeature {
     SPEED_LIMIT(new SpeedLimitAction()),
-    ENTRANCE_CONTROL(null), //to-do: implement entrance control action
-    EXIT_CONTROL(null); //to-do: implement exit_control action
+    ENTRANCE_CONTROL(null), //todo: implement entrance control action
+    EXIT_CONTROL(null); //todo: implement exit_control action
 
     private final Action action;
 
