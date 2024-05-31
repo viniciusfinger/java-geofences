@@ -32,6 +32,8 @@ public class Fence {
     @JoinColumn(name = "fence_id")
     private List<FenceFeatureInterest> features;
 
+    private Integer speedLimit;
+
     @Pattern(regexp = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", message = "Invalid color hex code")
     private String colorHex;
 
