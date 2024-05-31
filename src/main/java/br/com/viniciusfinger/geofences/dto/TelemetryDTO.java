@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class TelemetryDTO {
-
+    
+    private String deviceId;
+    
     private String customerId;
 
     private String latitude;
@@ -14,7 +16,5 @@ public class TelemetryDTO {
     private String timestamp;
 
     private Float speed;
-
-    private String deviceId;
 
 }
