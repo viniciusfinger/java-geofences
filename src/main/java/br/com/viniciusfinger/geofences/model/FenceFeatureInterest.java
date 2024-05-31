@@ -1,5 +1,6 @@
 package br.com.viniciusfinger.geofences.model;
 
+import br.com.viniciusfinger.geofences.dto.TelemetryDTO;
 import br.com.viniciusfinger.geofences.enums.FenceFeature;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,9 +11,10 @@ import java.util.List;
 @Setter
 @Entity
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class FenceFeatureInterest {
+
+    public FenceFeatureInterest(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,7 @@ public class FenceFeatureInterest {
     @JoinColumn(nullable = false)
     private Fence fence;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private FenceFeature feature;
 
@@ -35,4 +38,7 @@ public class FenceFeatureInterest {
     )
     private List<Person> interestedPersons;
 
+    public void execute(TelemetryDTO telemetry) {
+        this.feature.getAction().execute(this, telemetry);
+    }
 }
