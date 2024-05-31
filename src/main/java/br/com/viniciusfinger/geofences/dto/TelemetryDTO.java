@@ -3,7 +3,7 @@ package br.com.viniciusfinger.geofences.dto;
 import lombok.Data;
 
 @Data
-public class Telemetry {
+public class TelemetryDTO {
 
     private String customerId;
 
@@ -13,9 +13,8 @@ public class Telemetry {
 
     private String timestamp;
 
-    private String speed;
+    private Float speed;
 
     private String deviceId;
-
 
 }
