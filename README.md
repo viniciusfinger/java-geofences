@@ -46,6 +46,9 @@ Before running the application, ensure you have the following installed:
    
 //todo: add more instructions
 
+## Model diagram
+//todo: add model diagram
+
 ## Customization
 
 Feel free to customize the application to suit your needs. You can modify the geofences implementation, telemetry data processing, event detection, infraction detection, and notification system.
