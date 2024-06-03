@@ -30,6 +30,8 @@ public class TelemetryProcessor {
      **/
     public void process(TelemetryDTO telemetryDTO) {
         //todo: implementar busca de cercas. Pensar como fazer.
+        //todo: validar se o customer existe
+        //todo: tratar melhor as exceptions
         List<Fence> fences = fenceService.findByTelemetry(telemetryDTO);
 
         fences.forEach(fence ->
