@@ -1,17 +1,51 @@
-# Geofences API 📈
-todo: improve readme
-API
+# Java Geofences 🗺️🛰️
 
-## Dependencies 📦
-[Java 21 ☕](https://openjdk.org/projects/jdk/21/)
+A geofence system in Java using polygons to define areas on the map. The system is fed with telemetry data to verify positioning and allows the configuration of functionalities for the geofences, such as the detection of entry and exit events from the marked area, in addition to pre-defined infractions, such as speeding within the limits of the fence. When an event or infraction occurs, the system notifies interested parties, ensuring a quick and efficient response.
 
-[Spring Boot 3.2.1 🍃](https://spring.io/blog/2023/09/21/spring-boot-3-1-4-available-now)
+## Features
 
-[PostgreSQL 16 🐘](https://www.postgresql.org/about/news/postgresql-16-released-2715/)
+- **Geofence Creation**: Define areas on the map using points with latitude and longitude.
+- **Telemetry Data**: Feed the system with telemetry data to verify positioning using HTTPS requests or messaging.
+- **Event Detection**: Detect entry and exit events from the geofence.
+- **Infraction Detection**: Detect infractions, such as speeding within the limits of the fence.
+- **Notification System**: Notify interested parties when an event or infraction occurs.
 
-## Running ▶️
-1. Run `docker-compose up` to start PostgisSQL (an spatial version of postgreSQL)
-2. Run `AssetsApplication.java` file with the `develop` profile passed as a parameter (`--spring.profiles.active=develop`)
+## Prerequisites
 
+Before running the application, ensure you have the following installed:
 
-#todo: implement openAPI documentation and swagger
+- **Docker** 🐳 (For containerization)
+- **PostGIS** 🌍 (For geospatial data and general persistence)
+- **Java 21** ☕️ (For running the application)
+
+## Installation
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/viniciusfinger/java-geofences.git
+   ```
+
+2. Run docker in the project root directory:
+
+   ```bash
+   docker-compose up
+   ```
+
+3. Install maven dependencies:
+   ```bash
+   mvn install
+   ```
+
+## Usage
+
+1. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+   
+//todo: add more instructions
+
+## Customization
+
+Feel free to customize the application to suit your needs. You can modify the geofences implementation, telemetry data processing, event detection, infraction detection, and notification system.
