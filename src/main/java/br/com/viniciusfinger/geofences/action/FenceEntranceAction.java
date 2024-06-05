@@ -7,19 +7,19 @@ import br.com.viniciusfinger.geofences.model.Fence;
 import br.com.viniciusfinger.geofences.model.FenceFeatureInterest;
 import br.com.viniciusfinger.geofences.model.Telemetry;
 import br.com.viniciusfinger.geofences.service.EventService;
+import lombok.extern.slf4j.Slf4j;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class FenceEntranceAction implements Action {
 
-    private final EventService eventService;
-
-    public FenceEntranceAction(EventService eventService) {
-        this.eventService = eventService;
-    }
+    @Autowired
+    private EventService eventService;
 
     @Override
     public void execute(FenceFeatureInterest fenceFeatureInterest, TelemetryDTO telemetryDTO, Telemetry lastTelemetry) {
@@ -36,10 +36,13 @@ public class FenceEntranceAction implements Action {
         );
 
         if (isEnteringFence(fence, lastPosition, actualPosition)) {
+            log.info("Device {} has entered fence id {}", telemetryDTO.getDeviceId(), fence.getId());
+
             Event entranceEvent = Event.builder().type(EventType.FENCE_ENTRANCE)
                     .fenceFeatureInterest(fenceFeatureInterest).build();
 
            this.eventService.save(entranceEvent);
+            //todo: notification service enviar email
         }
     }
 
