@@ -8,12 +8,9 @@ import java.util.UUID;
 @Entity
 public class Event {
 
-    /*
-    Fence entrance and exit events (and another events)
-     */
-
-    //todo: terminar de implementar. Associar a funcionalidade que gerou o evento.
-
+    /**
+     * Fence entrance and exit events (and another events)
+     **/
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -21,4 +18,7 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventType type;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private FenceFeatureInterest fenceFeatureInterest;
 }
