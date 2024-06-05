@@ -47,8 +47,9 @@ public class TelemetryProcessor {
     }
 
     private void processFeaturesByFence(List<FenceFeatureInterest> fenceFeatureInterestList, TelemetryDTO telemetryDTO) {
-        fenceFeatureInterestList.forEach(fenceFeatureInterest ->
-                fenceFeatureInterest.getFeature().getAction().execute(fenceFeatureInterest, telemetryDTO)
-        );
+        fenceFeatureInterestList.forEach(fenceFeatureInterest -> {
+            Telemetry lastTelemetry = telemetryService.findByDeviceId(Long.valueOf(telemetryDTO.getDeviceId()));
+            fenceFeatureInterest.getFeature().getAction().execute(fenceFeatureInterest, telemetryDTO);
+        });
     }
 }

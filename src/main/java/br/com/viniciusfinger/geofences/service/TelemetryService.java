@@ -17,4 +17,9 @@ public class TelemetryService {
     public Telemetry save(Telemetry telemetry) {
         return telemetryRepository.save(telemetry);
     }
+
+    public Telemetry findByDeviceId(Long deviceId) {
+        //todo: melhorar essa exception
+        return telemetryRepository.findByDeviceId(deviceId).orElseThrow(() -> new RuntimeException("Telemetry not found"));
+    }
 }
