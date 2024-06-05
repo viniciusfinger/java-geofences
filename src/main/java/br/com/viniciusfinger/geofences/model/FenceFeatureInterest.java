@@ -37,8 +37,4 @@ public class FenceFeatureInterest {
             inverseJoinColumns = @JoinColumn(name = "person_id")
     )
     private List<Person> interestedPersons;
-
-    public void execute(TelemetryDTO telemetry) {
-        this.feature.getAction().execute(this, telemetry);
-    }
 }

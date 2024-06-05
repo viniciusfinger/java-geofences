@@ -2,16 +2,18 @@ package br.com.viniciusfinger.geofences.dto;
 
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class TelemetryDTO {
     
-    private String deviceId;
+    private Long deviceId;
     
-    private String customerId;
+    private UUID customerId;
 
-    private String latitude;
+    private Double latitude;
 
-    private String longitude;
+    private Double longitude;
 
     private String timestamp;
 

@@ -3,7 +3,9 @@ package br.com.viniciusfinger.geofences.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
 public class Telemetry {
 
@@ -13,9 +15,9 @@ public class Telemetry {
     @ManyToOne
     private Customer customer;
 
-    private String latitude;
+    private Double latitude;
 
-    private String longitude;
+    private Double longitude;
 
     private String timestamp;
 
