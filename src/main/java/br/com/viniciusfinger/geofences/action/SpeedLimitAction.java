@@ -2,6 +2,7 @@ package br.com.viniciusfinger.geofences.action;
 
 import br.com.viniciusfinger.geofences.dto.TelemetryDTO;
 import br.com.viniciusfinger.geofences.enums.InfractionType;
+import br.com.viniciusfinger.geofences.model.Fence;
 import br.com.viniciusfinger.geofences.model.FenceFeatureInterest;
 import br.com.viniciusfinger.geofences.model.Infraction;
 import br.com.viniciusfinger.geofences.model.Telemetry;
@@ -20,7 +21,9 @@ public class SpeedLimitAction implements Action {
     private NotificationService notificationService;
 
     public void execute(FenceFeatureInterest fenceFeatureInterest, TelemetryDTO telemetryDTO, Telemetry lastTelemetry) {
-        var fence = fenceFeatureInterest.getFence();
+
+        //todo: add log
+        Fence fence = fenceFeatureInterest.getFence();
 
         if (telemetryDTO.getSpeed() > fence.getSpeedLimit()){
             var infraction = Infraction.builder()
