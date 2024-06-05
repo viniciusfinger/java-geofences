@@ -9,6 +9,7 @@ public class NotificationService {
     public void notificateInteresteds(FenceFeatureInterest fenceFeatureInterest) {
         fenceFeatureInterest.getInterestedPersons().forEach(
                 //todo: chamar serviço de email e disparar email
+                //todo: dar uma mensagem detalhada de acordo com o tipo de infração/evento.
                 interestedPerson -> System.out.println("Notificando " + interestedPerson.getFirstName())
         );
     }
